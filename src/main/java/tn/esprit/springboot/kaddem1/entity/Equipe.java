@@ -33,4 +33,7 @@ public class Equipe implements Serializable {
     @ManyToMany(mappedBy = "EtudiantEquipe", cascade = CascadeType.ALL)
     private Set<Etudiant> etudiants;
 
+    @OneToOne
+    private  Projet projet;
+
 }

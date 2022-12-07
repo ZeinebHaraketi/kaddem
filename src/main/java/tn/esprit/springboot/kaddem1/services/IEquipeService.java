@@ -11,6 +11,8 @@ public interface IEquipeService {
     Equipe addEquipe(Equipe e); // ajouter l’équipe avec son détail
     Equipe updateEquipe (Equipe e);
     Equipe retrieveEquipe (Integer idEquipe);
+    public  void upgradeNiveau( Equipe equipe);
+    public void faireEvoluerEquipes();
 
 
 }

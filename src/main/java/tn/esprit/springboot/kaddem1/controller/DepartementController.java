@@ -36,9 +36,14 @@ public class DepartementController {
        return departementService.updateDepartement(d);
     }
 
-    @PutMapping("/assignEtudiantToDepartement/{idEtudiant}/{idDepart}")
-    public void assignEtudiantToDepartement(@RequestParam Integer idEtudiant,@RequestParam Long idDepart) {
-        departementService.assignEtudiantToDepartement(idEtudiant,idDepart);
+    @PutMapping("/assign/{idDep}/{idEtud}")
+    public void assignDepartementToStudent(@PathVariable("idDepart") long idDepart,@PathVariable("idEtud") long idEtud){
+        departementService.assignEtudiantToDepartement(idDepart,idEtud);
+    }
+
+    @GetMapping("/findDepartmentsByUniversite/{idUniv}")
+    public List<Departement> findDepartmentsByidUniv(@PathVariable("idUniv") Integer idUniv){
+        return departementService.retrieveDepartementsByUniversite(idUniv);
     }
 
 }

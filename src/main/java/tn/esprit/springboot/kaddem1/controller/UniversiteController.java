@@ -34,6 +34,10 @@ public class UniversiteController {
     private Universite displayById(@PathVariable("idUniv") int idUniv){
         return universiteService.retrieveUniversite(idUniv);
     }
+    @PutMapping("/assign/{idUniversite}/{idDepartement}")
+    public void assignUniversityToDepartment(@PathVariable("idUniversite") Integer idUniversite,@PathVariable("idDepartement") Integer idDepartement){
+        universiteService.assignUniversiteToDepartement(idUniversite,idDepartement);
+    }
 
 
 

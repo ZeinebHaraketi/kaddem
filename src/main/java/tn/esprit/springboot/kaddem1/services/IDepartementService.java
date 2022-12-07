@@ -16,6 +16,7 @@ public interface IDepartementService {
 
     public void removeDepart(Long idDepart);
 
-    public void assignEtudiantToDepartement(Integer etudiantId, Long departementId);
+    public void assignEtudiantToDepartement(long etudiantId, long departementId);
+    public List<Departement> retrieveDepartementsByUniversite(long idUniversite);
 
     }

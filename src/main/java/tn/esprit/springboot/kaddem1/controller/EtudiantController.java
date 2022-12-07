@@ -42,4 +42,14 @@ public class EtudiantController {
     private Etudiant displayById(@PathVariable("idEtudiant")int idEtudiant){
         return etudiantService.retrieveEtudiant(idEtudiant);
     }
+    @PutMapping("/affect/{idContrat}/{idEquipe}")
+    public void addAndAssignEtudiantToEquipeAndContract(@RequestBody Etudiant e,@PathVariable("idContrat") Integer idContrat,@PathVariable("idEquipe") Integer idEquipe){
+        etudiantService.addAndAssignEtudiantToEquipeAndContract(e,idContrat,idEquipe);
+    }
+
+   // @GetMapping("/findByDepartment/{idDeparment}")
+   // public List<Etudiant> getEtudiantsByDepartement(@PathVariable("idDeparment") Integer idDeaprtment){
+       // return etudiantService.getEtudiantsByDepartement(idDeaprtment);
+   // }
+
 }

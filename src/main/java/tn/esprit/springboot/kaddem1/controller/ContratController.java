@@ -3,10 +3,12 @@ package tn.esprit.springboot.kaddem1.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.springboot.kaddem1.entity.Contrat;
 import tn.esprit.springboot.kaddem1.services.ContratService;
 
+import java.util.Date;
 import java.util.List;
 
 @Tag(name = "Gestion Contrat")
@@ -47,5 +49,17 @@ public class ContratController {
     @GetMapping("/allcontrat/{idContrat}")
     private Contrat displayById(@PathVariable("idContrat") int idContrat){
         return contratService.retrieveContrat(idContrat);
+    }
+
+    @PutMapping("/affect/{nomE}/{prenomE}")
+    public Contrat affectContratToEtudiant( @RequestBody Contrat ce,@PathVariable("nomE") String nomE, @PathVariable("prenomE") String prenomE){
+
+        return contratService.affectContratToEtudiant(ce,nomE,prenomE);
+    }
+
+    @GetMapping("/chiffreAffaire/{startDate}/{endDate}")
+    @ResponseBody
+    public Float getChiffresAffaireEntreDeuxDate(@PathVariable("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate, @PathVariable("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate){
+        return contratService.getChiffreAffaireEntreDeuxDate(startDate, endDate);
     }
 }

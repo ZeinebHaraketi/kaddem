@@ -11,6 +11,7 @@ import tn.esprit.springboot.kaddem1.services.EquipeService;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @Tag(name = "Gestion Equipe")
 @RestController
 @RequestMapping("/equipe")

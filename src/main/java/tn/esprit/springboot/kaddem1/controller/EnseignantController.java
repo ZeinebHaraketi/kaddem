@@ -11,6 +11,7 @@ import tn.esprit.springboot.kaddem1.services.EnseignantService;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @Tag(name = "Gestion Enseignant")
 @RestController
 @RequestMapping("/enseignant")

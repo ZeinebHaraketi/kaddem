@@ -1,6 +1,5 @@
 package tn.esprit.springboot.kaddem1.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -37,7 +36,5 @@ public class Etudiant implements Serializable {
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Equipe> EtudiantEquipe;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="etudiant")
-    @JsonIgnore
-    private Set<Contrat> contrats;
+
 }

@@ -7,6 +7,7 @@ import tn.esprit.springboot.kaddem1.services.EtudiantService;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("etudiant")
 public class EtudiantController {
@@ -42,14 +43,4 @@ public class EtudiantController {
     private Etudiant displayById(@PathVariable("idEtudiant")int idEtudiant){
         return etudiantService.retrieveEtudiant(idEtudiant);
     }
-    @PutMapping("/affect/{idContrat}/{idEquipe}")
-    public void addAndAssignEtudiantToEquipeAndContract(@RequestBody Etudiant e,@PathVariable("idContrat") Integer idContrat,@PathVariable("idEquipe") Integer idEquipe){
-        etudiantService.addAndAssignEtudiantToEquipeAndContract(e,idContrat,idEquipe);
-    }
-
-   // @GetMapping("/findByDepartment/{idDeparment}")
-   // public List<Etudiant> getEtudiantsByDepartement(@PathVariable("idDeparment") Integer idDeaprtment){
-       // return etudiantService.getEtudiantsByDepartement(idDeaprtment);
-   // }
-
 }

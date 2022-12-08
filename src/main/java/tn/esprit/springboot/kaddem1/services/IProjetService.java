@@ -12,6 +12,9 @@ public interface IProjetService {
     Projet updateProjet (Projet p);
     Projet addProjet (Projet p);
 
-    Projet retrieveProjet (Integer idProjet);
+    Projet retrieveProjet (Long idProjet);
     void removeProjet(Long idProjet);
+
+    public Projet updateProjet(long id,Projet p);
+
 }

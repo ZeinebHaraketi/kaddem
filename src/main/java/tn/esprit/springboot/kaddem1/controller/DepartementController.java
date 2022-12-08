@@ -7,6 +7,7 @@ import tn.esprit.springboot.kaddem1.services.DepartementService;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/departement")
 public class DepartementController {
@@ -36,14 +37,9 @@ public class DepartementController {
        return departementService.updateDepartement(d);
     }
 
-    @PutMapping("/assign/{idDep}/{idEtud}")
-    public void assignDepartementToStudent(@PathVariable("idDepart") long idDepart,@PathVariable("idEtud") long idEtud){
-        departementService.assignEtudiantToDepartement(idDepart,idEtud);
-    }
-
-    @GetMapping("/findDepartmentsByUniversite/{idUniv}")
-    public List<Departement> findDepartmentsByidUniv(@PathVariable("idUniv") Integer idUniv){
-        return departementService.retrieveDepartementsByUniversite(idUniv);
+    @PutMapping("/assignEtudiantToDepartement/{idEtudiant}/{idDepart}")
+    public void assignEtudiantToDepartement(@RequestParam Integer idEtudiant,@RequestParam Long idDepart) {
+        departementService.assignEtudiantToDepartement(idEtudiant,idDepart);
     }
 
 }

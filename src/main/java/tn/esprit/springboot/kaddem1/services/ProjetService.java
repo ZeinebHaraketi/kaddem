@@ -29,12 +29,27 @@ public class ProjetService implements  IProjetService{
     }
 
     @Override
-    public Projet retrieveProjet(Integer idProjet) {
-        return projetRepository.findById((long)idProjet).get();
+    public Projet retrieveProjet(Long idProjet) {
+        return projetRepository.findById(idProjet).get();
     }
 
     @Override
     public void removeProjet(Long idProjet) {
         projetRepository.deleteById(idProjet);
     }
+
+    @Override
+    public Projet updateProjet(long id, Projet p) {
+        Projet toUpdateProjet =projetRepository.findById(id).get();
+        if(projetRepository.findById(id).isPresent()){
+
+            toUpdateProjet.setIdProjet(p.getIdProjet());
+            toUpdateProjet.setDescription(p.getDescription());
+
+            return projetRepository.save(toUpdateProjet);
+        }
+        return projetRepository.save(toUpdateProjet);
+    }
+
+
 }

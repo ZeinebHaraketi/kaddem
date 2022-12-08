@@ -7,6 +7,7 @@ import tn.esprit.springboot.kaddem1.services.UniversiteService;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/universite")
 public class UniversiteController {
@@ -33,10 +34,6 @@ public class UniversiteController {
     @GetMapping("/allU/{idUniv}")
     private Universite displayById(@PathVariable("idUniv") int idUniv){
         return universiteService.retrieveUniversite(idUniv);
-    }
-    @PutMapping("/assign/{idUniversite}/{idDepartement}")
-    public void assignUniversityToDepartment(@PathVariable("idUniversite") Integer idUniversite,@PathVariable("idDepartement") Integer idDepartement){
-        universiteService.assignUniversiteToDepartement(idUniversite,idDepartement);
     }
 
 

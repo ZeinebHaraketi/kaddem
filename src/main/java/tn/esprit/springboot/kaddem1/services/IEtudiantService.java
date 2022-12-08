@@ -14,6 +14,4 @@ public interface IEtudiantService {
     Etudiant retrieveEtudiant(Integer idEtudiant);
 
     void removeEtudiant(Long idEtudiant);
-    public Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, long idContrat, long idEquipe);
-    //public List<Etudiant> getEtudiantsByDepartement(Integer idDepartement);
 }

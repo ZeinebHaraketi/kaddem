@@ -2,7 +2,6 @@ package tn.esprit.springboot.kaddem1.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tn.esprit.springboot.kaddem1.entity.Departement;
 import tn.esprit.springboot.kaddem1.entity.Universite;
 import tn.esprit.springboot.kaddem1.repository.UniversiteRepository;
 
@@ -34,10 +33,15 @@ public class UniversiteService implements IUniversiteService{
         return universiteRepository.findById((long)idUniversite).get();
     }
 
+
+    @Override
+    public void removeUniversite(Long idUniversite) {
+        universiteRepository.deleteById(idUniversite);
+
+    }
+
     public Long ajoutUniversite(Universite u){
         return universiteRepository.save(u).getIdUniv();
     }
-
-
 
 }

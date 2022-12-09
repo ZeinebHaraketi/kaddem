@@ -13,4 +13,8 @@ public interface IUniversiteService {
     Universite updateUniversite (Universite u);
 
     Universite retrieveUniversite (Integer idUniversite);
+
+
+     void removeUniversite(Long idUniversite);
+
 }

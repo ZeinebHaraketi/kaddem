@@ -17,4 +17,5 @@ public interface IProjetService {
 
     public Projet updateProjet(long id,Projet p);
 
+    public List<Projet> getProjetsPag(Integer pageNo, Integer pageSize);
 }

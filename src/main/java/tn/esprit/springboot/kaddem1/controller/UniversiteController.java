@@ -8,7 +8,7 @@ import tn.esprit.springboot.kaddem1.services.UniversiteService;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200",allowedHeaders = "*",exposedHeaders = "Access-Control-Allow-Origin")
 @RestController
 @RequestMapping("/universite")
 public class UniversiteController {
@@ -38,7 +38,7 @@ public class UniversiteController {
     }
 
 
-    @DeleteMapping("/remove/{idUniv}")
+    @DeleteMapping("/univ/{idUniv}")
     public void removeUniv(@PathVariable("idUniv") long id){
         universiteService.removeUniversite(id);
     }
